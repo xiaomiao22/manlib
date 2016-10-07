@@ -1,0 +1,43 @@
+*manlib.txt*            Plugin for manlib
+
+manlib 是一个整理代码库的小项目, 由两部分组成: 第一部分--manlib, 作为vim的插件存在, 第二部分--manlibs, 他就是一个按照固定规则的源码目录.  
+
+1. 基本配置
+manlib 配置
+	manlib与安装其他vim插件一样.
+
+manlibs 配置
+	manlibs 可置于任何有权限的目录然后重新生成tags
+>
+	$ cd manlibs
+	$ ctags -R
+<
+
+vimrc 配置
+	可参考如下进行参考:
+>
+	let g:manlib_path = "/home/miaoguoxiang/manlibs"
+	source /home/miaoguoxiang/.vim/bundle/manlib/pulgin/manlib.vim
+<
+
+
+2. 添加代码
+可将写好的代码直接放入src或project目录中, 如果是新增的文件,则建议还更新manlibs下面的index文件. 然后执行ctags -R进行更新
+
+3. vim 中的Manlib操作
+:Manhelp {word}
+	查看帮助, 即为此页.
+
+:Mantag {word}
+	查看代码库中的tag标签.
+
+:Manfile {word}
+	直接打开代码库中的文件.
+
+:Manindex {word}
+    打开代码库中的索引文件, 可以通过gf等vim命令进行跳转.
+
+:Manlib {word}
+	备用.
+
+
