@@ -1,14 +1,15 @@
 " File:   manlib.vim
 " Author: miaoguoxiang
 " Version: 0.0.1
-" Last Modified: 2016.9.25
+" Last Modified: 2016.11.20
 " Copyright: Copyright (C) miaoguoxiang
 "
 let s:manlib_src = "src"
 let s:manlib_tags = "tags"
 let s:manlib_tag = "tag"
 let s:manlib_src_path = g:manlib_path . "/" . s:manlib_src
-let s:manlib_vsplit = "vsplit"
+"let s:manlib_vsplit = "vsplit"
+let s:manlib_vsplit = "tabedit"
 let s:manlib_tags_path = g:manlib_path . "/" . s:manlib_tags
 
 let &path=&path . ',' . s:manlib_src_path
@@ -44,9 +45,7 @@ endfunction
 function Manindex_main()
 	let s:manindex_path = s:manlib_vsplit . " " . g:manlib_path . "/" . "index" 
 	execute ":" . s:manindex_path
-	"echo &path
 endfunction
-
 
 " Manhelp
 if !exists(":Manhelp")
@@ -73,6 +72,8 @@ if !exists(":Manindex")
 	command -nargs=0 Manindex :call Manindex_main()
 endif
 
+" nmap 
+nmap <C-m>i :Manindex<CR>
 
 let &cpo = s:save_cpo
 
